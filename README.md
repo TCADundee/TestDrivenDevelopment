@@ -6,13 +6,13 @@ A simple command-line quiz application written in Python.
 
 - `quiz/`
   - `__init__.py` (package)
-  - `core.py` (main functionality)
+  - `quiz_game.py` (main functionality)
 - `tests/`
-  - `test_core.py` (unit tests)
+  - `test_question.py` (unit tests)
 
 ## Development
 
-We follow test-driven development (TDD). Write tests in `tests/` before implementing features in `quiz/core.py`.
+For this project we used test-driven development (TDD). We started this project in `tests/`, basing our needed features on the tests we have created, then adding them in `quiz/`.
 
 To run tests:
 

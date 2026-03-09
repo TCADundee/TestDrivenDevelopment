@@ -1,1 +1,0 @@
-#Stores the users score from the quiz.

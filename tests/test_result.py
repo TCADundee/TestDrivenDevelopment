@@ -1,1 +1,0 @@
-#Stores all tests relating to the result of the quiz.
