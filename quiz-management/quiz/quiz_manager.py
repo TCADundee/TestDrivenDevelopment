@@ -1,0 +1,1 @@
+#Stores functions to manage the quiz, including modifyings quizzes, adding questions and creating quizzes.
