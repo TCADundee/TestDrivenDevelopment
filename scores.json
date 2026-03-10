@@ -1,12 +1,12 @@
 {
     "scores": [
         {
-            "name": "Test User",
+            "name": "Alice",
             "score": 5
         },
         {
-            "name": "Test User34",
-            "score": 6
+            "name": "Bob",
+            "score": 3
         }
     ]
 }
