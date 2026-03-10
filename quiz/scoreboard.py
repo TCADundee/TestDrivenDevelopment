@@ -40,6 +40,12 @@ class Scoreboard:
         with open('scores.json', 'w') as file:
             json.dump(self.data, file, indent=4)
 
+    def clear_scoreboard(self):
+        # Clear the scores list and save the empty data back to the JSON file
+        self.data['scores'] = []
+        with open('scores.json', 'w') as file:
+            json.dump(self.data, file, indent=4)
+
     def display_scoreboard(self):
         if not self.data or 'scores' not in self.data or self.data['scores'] == []:
             print("\nNo scores available.")
