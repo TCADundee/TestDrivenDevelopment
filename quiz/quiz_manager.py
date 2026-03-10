@@ -39,3 +39,50 @@ class QuizManager:
 
         with open(filename, "w") as file:
             json.dump(data, file, indent=2)
+
+    #lists all questions in json file
+    def list_questions(self, filename):
+        with open(filename, "r") as file:
+            data = json.load(file)
+
+        for i, item in enumerate(data, 1):
+            print(f"\nQuestion {i}")
+            print("Text:", item["text"])
+            print("Options:", item["options"])
+            print("Answer:", item["answer"])
+
+    #deletes a question
+    def remove_question(self, filename, question_number):
+        with open(filename, "r") as file:
+            data = json.load(file)
+
+        index = question_number - 1
+
+        if index < 0 or index >= len(data):
+            print("Invalid question number")
+            return
+
+        del data[index]
+
+        with open(filename, "w") as file:
+            json.dump(data, file, indent=2)
+
+    #upadtes an already exisiting question
+    def update_question(self, filename, question_number, new_question):
+        with open(filename, "r") as file:
+            data = json.load(file)
+
+        index = question_number - 1
+
+        if index < 0 or index >= len(data):
+            print("Invalid question number")
+            return
+
+        data[index] = {
+            "text": new_question.text,
+            "options": new_question.options,
+            "answer": new_question.answer
+        }
+
+        with open(filename, "w") as file:
+            json.dump(data, file, indent=2)
