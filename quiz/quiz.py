@@ -28,3 +28,4 @@ class Quiz:
 
         print("\nQuiz finished!")
         print("Your score:", self.score, "/", len(self.questions))
+        return self.score
