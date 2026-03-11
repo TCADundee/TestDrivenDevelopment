@@ -90,12 +90,14 @@
     "answer": "cos(x)"
   },
   {
-    "text": "Test 123",
+    "text": "Which programming language is known for its use in data science and machine learning?",
     "options": [
-      "1",
-      "2",
-      "3"
+      "Java",
+      "C++",
+      "Python",
+      "Ruby"
     ],
-    "answer": "2"
+    "answer": "Python"
   }
+
 ]

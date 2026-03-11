@@ -7,6 +7,10 @@
         {
             "name": "Bob",
             "score": 3
+        },
+        {
+            "name": "Charlie",
+            "score": 8
         }
     ]
 }
