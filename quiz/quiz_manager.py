@@ -1,5 +1,5 @@
 #Stores functions to manage the quiz, including loading a quiz ,as well as modifying, adding and removing questions.
-
+import os
 import json
 from quiz.question import Question
 from quiz.quiz import Quiz
@@ -86,3 +86,37 @@ class QuizManager:
 
         with open(filename, "w") as file:
             json.dump(data, file, indent=2)
+
+    #lists all quizzes in the quizzes folder
+    def list_quizzes(self, folder="quizzes"):
+        if not os.path.exists(folder):
+            os.mkdir(folder)
+
+        quiz_files = []
+
+        for file in os.listdir(folder):
+            if file.endswith(".json"):
+                quiz_files.append(file)
+
+        return quiz_files
+
+    #allows u to create a new quiz
+    def create_quiz(self, filename, folder="quizzes"):
+        if not os.path.exists(folder):
+            os.mkdir(folder)
+
+        full_path = os.path.join(folder, filename)
+
+        if not full_path.endswith(".json"):
+            full_path += ".json"
+
+        if os.path.exists(full_path):
+            print("Quiz already exists.")
+            return
+
+        with open(full_path, "w") as file:
+            json.dump([], file, indent=2)
+
+        print("Quiz created:", full_path)
+
+    
