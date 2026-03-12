@@ -144,6 +144,9 @@ class QuizManager:
             data = json.load(file)
 
         index = question_number - 1
+        if index < 0 or index >= len(data):
+            print("Invalid question number")
+            return
 
         data[index] = {
             "text": new_question.text,
