@@ -6,9 +6,9 @@ from quiz.question import Question
 
 manager = QuizManager()
 scoreboard = Scoreboard()
-current_quiz = None
+current_quiz = None #stores which quiz is currently being used
 while True:
-
+    #menu
     print("\n--- Quiz Menu ---") 
     print("1. Play Quiz")
     print("2. Select Quiz")
@@ -22,11 +22,11 @@ while True:
 
     match choice:
         case "1": #Option to start current quiz and play it.
-            if current_quiz is None:
+            if current_quiz is None: #check for if a quiz is selected
                 print("Please select a quiz first.")
             else:
-                quiz = manager.load_quiz(current_quiz)
-                score = quiz.run()
+                quiz = manager.load_quiz(current_quiz) 
+                score = quiz.run() #runs quiz and stores score
                 name = input("Enter your name for the scoreboard: ") #Receives user input for scoreboard.
                 if(name.strip() == ""):
                     name = "Anonymous"

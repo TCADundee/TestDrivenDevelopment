@@ -4,15 +4,15 @@ class Quiz:
 
     def __init__(self, questions):
         self.questions = questions
-        self.score = 0
+        self.score = 0 #keeps track of score
 
-    def run(self):
+    def run(self): #function that runs the quiz
 
-        for question in self.questions:
+        for question in self.questions: #loops for all questions
 
-            print("\n" + question.text)
+            print("\n" + question.text) #prints question
 
-            for i, option in enumerate(question.options, 1):
+            for i, option in enumerate(question.options, 1): #prints all options
                 print(f"{i}. {option}")
 
             #Checks the number input by the user and converts it to the corresponding option,
@@ -30,12 +30,12 @@ class Quiz:
                     
             
             
-            if question.check_answer(user_answer):
+            if question.check_answer(user_answer): #checks if the answer is correct by calling a function that returns true or false
                 print("Correct!")
                 self.score += 1
             else:
                 print("Incorrect!")
 
         print("\nQuiz finished!")
-        print("Your score:", self.score, "/", len(self.questions))
+        print("Your score:", self.score, "/", len(self.questions)) #prints score 
         return self.score
