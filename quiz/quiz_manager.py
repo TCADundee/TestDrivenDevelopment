@@ -163,7 +163,7 @@ class QuizManager:
         quiz_files = []
 
         for file in os.listdir(folder):
-            if file.endswith(".json"):
+            if file.endswith(".json") and file.endswith("_scores.json") == False: #filters out score files from the list.
                 quiz_files.append(file)
 
         return quiz_files

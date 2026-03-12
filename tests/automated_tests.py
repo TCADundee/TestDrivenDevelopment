@@ -5,6 +5,7 @@ def test_scoreboard():
     print("\n\n\n--- Testing Scoreboard ---\n")
 
     scoreboard = Scoreboard()
+    scoreboard.set_current_quiz("quizzes/test_quiz") #Sets the current quiz to test_quiz, allowing the tests to load and save scores for that quiz.
 
     if scoreboard.data and 'scores' in scoreboard.data and scoreboard.data['scores'] != []:
         # Clear the scoreboard before testing
@@ -13,9 +14,9 @@ def test_scoreboard():
         assert scoreboard.data == {"scores": []}, "Scoreboard should be empty after clearing"   
     
     # Test saving a score to scoreboard
-    scoreboard.save_score("Alice", 5)
+    scoreboard.save_score("Alice", 5, "quizzes/test_quiz")
     # Test saving another score to scoreboard
-    scoreboard.save_score("Bob", 3)
+    scoreboard.save_score("Bob", 3, "quizzes/test_quiz")
 
     # Test displaying the scoreboard
     scoreboard.display_scoreboard()

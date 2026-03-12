@@ -30,7 +30,7 @@ while True:
                 name = input("Enter your name for the scoreboard: ") #Receives user input for scoreboard.
                 if(name.strip() == ""):
                     name = "Anonymous"
-                scoreboard.save_score(name, score)
+                scoreboard.save_score(name, score, current_quiz.split(".")[0]) #Saves the score to the scoreboard, with the name and quiz used.
         
 
         case "2": #Option to select a quiz to play or edit.
@@ -47,6 +47,7 @@ while True:
                     if 1 <= selection <= len(quizzes): #validation for input.
                         current_quiz = os.path.join("quizzes", quizzes[selection - 1]) #changes path to selected.
                         print("Selected quiz:", quizzes[selection - 1])
+                        scoreboard.set_current_quiz(current_quiz.split(".")[0]) #Sets the current quiz for the scoreboard, allowing it to load and save scores for the correct quiz.
                     else:
                         print("Please enter a valid quiz number.")
                 except ValueError:
