@@ -12,10 +12,4 @@ A simple command-line quiz application written in Python.
 
 ## Development
 
-For this project we used test-driven development (TDD). We started this project in `tests/`, basing our needed features on the tests we have created, then adding them in `quiz/`.
-
-To run tests:
-
-```bash
-python -m pytest
-```
+For this project we used test-driven development (TDD). We started this project in `tests/`, basing our needed features on the tests we have created, then adding them in `quiz/`
