@@ -17,9 +17,19 @@ class Quiz:
 
             #Checks the number input by the user and converts it to the corresponding option,
             #then checks if the answer is correct and updates the score accordingly.
-            answer_index = int(input("Choose an option: ")) - 1
-            user_answer = question.options[answer_index]
-
+            while True:
+                try:
+                    answer_index = int(input("Choose an option: ")) - 1
+                    if 0 <= answer_index < len(question.options):
+                        user_answer = question.options[answer_index]
+                        break
+                    else:
+                        print("Please enter a valid option number.")
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
+                    
+            
+            
             if question.check_answer(user_answer):
                 print("Correct!")
                 self.score += 1
