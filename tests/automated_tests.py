@@ -1,3 +1,4 @@
+#This file was originally used in place of pytest to run all tests in a specific order. It has since been replaced by pytest, but is kept here for reference and potential future use.
 import sys
 import inspect
 import os

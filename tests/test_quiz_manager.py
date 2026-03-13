@@ -1,7 +1,7 @@
 #Stores all tests related to the core functionality of the quiz management system.
 from quiz.quiz_manager import QuizManager
 from quiz.question import Question
-import json, os
+import json, os, pytest, atexit
 
 def test_load_quiz():
 
@@ -15,11 +15,8 @@ def test_load_quiz_invalid_file():
 
     manager = QuizManager()
 
-    try:
-        quiz = manager.load_quiz("quizzes/non_existent_file.json")
-        assert False, "Expected an exception for a non-existent file"
-    except FileNotFoundError:
-        pass  # Expected
+    with pytest.raises(FileNotFoundError):
+        manager.load_quiz("quizzes/non_existent_file.json")
 
 def test_create_quiz():
     manager = QuizManager()
@@ -36,12 +33,12 @@ def test_create_quiz():
 def test_create_quiz_without_extension():
     manager = QuizManager()
     
-    manager.create_quiz("quiz_without_extension")
+    manager.create_quiz("test_quiz_without_extension")
     
     import os
-    assert os.path.exists("quizzes/quiz_without_extension.json"), "Should add .json extension automatically"
+    assert os.path.exists("quizzes/test_quiz_without_extension.json"), "Should add .json extension automatically"
     
-    with open("quizzes/quiz_without_extension.json", "r") as file:
+    with open("quizzes/test_quiz_without_extension.json", "r") as file:
         data = json.load(file)
     
     assert data == [], "Quiz should be empty after creation"
@@ -49,8 +46,8 @@ def test_create_quiz_without_extension():
 def test_create_quiz_already_exists(capsys):
     manager = QuizManager()
     
-    manager.create_quiz("existing_quiz.json")
-    manager.create_quiz("existing_quiz.json")
+    manager.create_quiz("test_existing_quiz.json")
+    manager.create_quiz("test_existing_quiz.json")
     
     captured = capsys.readouterr()
     assert "Quiz already exists." in captured.out, "Should display message when quiz already exists"
@@ -116,7 +113,7 @@ def test_list_quizzes():
 def test_list_quizzes_filters_score_files():
     manager = QuizManager()
     
-    manager.create_quiz("quiz.json")
+    manager.create_quiz("test_quiz_filter.json")
     
     quizzes = manager.list_quizzes("quizzes")
     
@@ -157,3 +154,24 @@ def test_update_question_invalid_number():
 def clear_test_file():
     with open("quizzes/test_quiz.json", "w") as file:
         json.dump([], file)
+
+#Deletes test files after all tests finish running.
+def cleanup_test_files():
+
+    folder = "quizzes"
+
+    if not os.path.exists(folder):
+        return
+
+    for file in os.listdir(folder):
+
+        #Remove temporary quiz files
+        if file.startswith("test_") or file.endswith("_scores.json"):
+            try:
+                os.remove(os.path.join(folder, file))
+            except FileNotFoundError:
+                pass
+
+
+#Register cleanup when pytest finishes
+atexit.register(cleanup_test_files)

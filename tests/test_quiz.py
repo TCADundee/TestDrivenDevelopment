@@ -2,7 +2,6 @@
 from quiz.quiz import Quiz
 from quiz.question import Question
 from unittest.mock import patch
-import io
 
 
 def test_quiz_stores_questions():

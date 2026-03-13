@@ -1,6 +1,7 @@
 #Stores functions to manage the quiz, including loading a quiz ,as well as modifying, adding and removing questions.
 import os
 import json
+import re
 from quiz.question import Question
 from quiz.quiz import Quiz
 
@@ -16,11 +17,7 @@ class QuizManager:
         questions = []
 
         for item in data:
-            question = Question(
-                item["text"],
-                item["options"],
-                item["answer"]
-            )
+            question = Question.create_question(item)
             questions.append(question)
 
         return Quiz(questions)
@@ -44,7 +41,7 @@ class QuizManager:
 
                 case "2":#Adds a new question to the quiz.
 
-                    question = self.validate_question()#Receives validated question.
+                    question = Question.validate_question()#Receives validated question.
                     self.add_question(filename, question)
 
 
@@ -84,7 +81,7 @@ class QuizManager:
                     print("Options:", data[index]["options"])
                     print("Answer:", data[index]["answer"])
 
-                    question = self.validate_question() #Receives validated question.
+                    question = Question.validate_question() #Receives validated question.
                     self.update_question(filename, number, question)
 
 
@@ -103,7 +100,8 @@ class QuizManager:
         data.append({
             "text": question.text,
             "options": question.options,
-            "answer": question.answer
+            "answer": question.answer,
+            "type": question.qtype
         })
 
         with open(filename, "w") as file:
@@ -120,6 +118,7 @@ class QuizManager:
             print("Text:", item["text"])
             print("Options:", item["options"])
             print("Answer:", item["answer"])
+            print("Type:", item["type"])
  
 
     #Deletes a question.
@@ -151,7 +150,8 @@ class QuizManager:
         data[index] = {
             "text": new_question.text,
             "options": new_question.options,
-            "answer": new_question.answer
+            "answer": new_question.answer,
+            "type": new_question.qtype
         }
 
         with open(filename, "w") as file:
@@ -177,6 +177,10 @@ class QuizManager:
         if not os.path.exists(folder):
             os.mkdir(folder)
 
+        #Remove any invalid characters from filename and ensure it ends with .json
+        filename = re.sub(r'[<>:"/\\|?*]', '_', filename).strip()
+
+
         full_path = os.path.join(folder, filename)
 
         if not full_path.endswith(".json"):
@@ -190,26 +194,3 @@ class QuizManager:
             json.dump([], file, indent=2)
 
         print("Quiz created:", full_path)
-
-    #Question Verification, added to avoid reusing same code for validating update and add question functions.
-    def validate_question(self):
-        while True:#Validates question text, looping until a non-empty question is entered.
-            text = input("Enter question text: ").strip()
-            if text:
-                break
-            print("Question text cannot be empty. Please try again.")
-
-        while True:#Validates options, looping until at least 2 options are entered.
-            options = input("Enter options separated by commas: ").split(",")
-            options = [option.strip() for option in options if option.strip()] #removes empty options
-            if len(options) >= 2:
-                break
-            print("Please enter at least 2 options.")
-
-        while True:#Validates answer, looping until a non-empty answer is entered that is also one of the options.
-            answer = input("Enter the correct answer: ").strip()
-            if answer and answer in options:
-                break
-            print("Answer must be one of the options and cannot be empty. Please try again.")
-
-        return Question(text, options, answer)

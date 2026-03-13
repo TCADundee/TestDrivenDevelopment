@@ -1,0 +1,95 @@
+[
+  {
+    "text": "What is the capital of France?",
+    "options": [
+      "Paris",
+      "London",
+      "Berlin",
+      "Rome"
+    ],
+    "answer": "Paris",
+    "type": "multiple_choice"
+  },
+  {
+    "text": "The Earth is flat.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": "False",
+    "type": "true_false"
+  },
+  {
+    "text": "Select the prime numbers.",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": [
+      "2",
+      "3",
+      "5"
+    ],
+    "type": "multi_select"
+  },
+  {
+    "text": "Which planet is known as the Red Planet?",
+    "options": [
+      "Earth",
+      "Mars",
+      "Jupiter",
+      "Venus"
+    ],
+    "answer": "Mars",
+    "type": "multiple_choice"
+  },
+  {
+    "text": "Python is a type of snake.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": "True",
+    "type": "true_false"
+  },
+  {
+    "text": "Select all programming languages.",
+    "options": [
+      "Python",
+      "HTML",
+      "Java",
+      "CSS",
+      "C++"
+    ],
+    "answer": [
+      "Python",
+      "Java",
+      "C++"
+    ],
+    "type": "multi_select"
+  },
+  {
+    "text": "What color do you get when you mix red and blue?",
+    "options": [
+      "Purple",
+      "Green",
+      "Orange",
+      "Yellow"
+    ],
+    "answer": "Purple",
+    "type": "multiple_choice"
+  },
+  {
+    "text": "Work?",
+    "options": [
+      "Yes",
+      "No",
+      "Okay"
+    ],
+    "answer": "Yes",
+    "type": "multiple_choice"
+  }
+]

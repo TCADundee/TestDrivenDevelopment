@@ -8,5 +8,13 @@
       "4"
     ],
     "answer": "4"
+  },
+  {
+    "text": "Is this true or false?",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answer": "True"
   }
 ]

@@ -1,102 +1,62 @@
 [
   {
-    "text": "How many players are on the field for one football team during normal play?",
-    "options": [
-      "9",
-      "10",
-      "11",
-      "12"
-    ],
-    "answer": "11"
+    "text": "Which country won the FIFA World Cup in 2018?",
+    "options": ["Brazil", "Germany", "France", "Argentina"],
+    "answer": "France",
+    "type": "multiple_choice"
   },
   {
-    "text": "Which country won the FIFA World Cup in 2018?",
-    "options": [
-      "Brazil",
-      "Germany",
-      "France",
-      "Argentina"
-    ],
-    "answer": "France"
+    "text": "Basketball was invented by James Naismith.",
+    "options": ["True", "False"],
+    "answer": "True",
+    "type": "true_false"
+  },
+  {
+    "text": "Select all countries that have hosted the Olympic Games more than once.",
+    "options": ["USA", "China", "Australia", "France", "Japan"],
+    "answer": ["USA", "Australia", "France", "Japan"],
+    "type": "multi_select"
   },
   {
     "text": "In tennis, what is the term for a score of zero?",
-    "options": [
-      "Blank",
-      "Love",
-      "Nil",
-      "Zero"
-    ],
-    "answer": "Love"
+    "options": ["Love", "Ace", "Deuce", "Fault"],
+    "answer": "Love",
+    "type": "multiple_choice"
   },
   {
-    "text": "Which sport uses the terms 'strike', 'spare', and 'gutter'?",
-    "options": [
-      "Cricket",
-      "Bowling",
-      "Baseball",
-      "Golf"
-    ],
-    "answer": "Bowling"
+    "text": "Michael Jordan played for the Chicago Bulls.",
+    "options": ["True", "False"],
+    "answer": "True",
+    "type": "true_false"
   },
   {
-    "text": "How many holes are played in a standard round of golf?",
-    "options": [
-      "9",
-      "12",
-      "18",
-      "24"
-    ],
-    "answer": "18"
+    "text": "Which player has won the most Ballon d'Or awards?",
+    "options": ["Cristiano Ronaldo", "Lionel Messi", "Neymar", "Zinedine Zidane"],
+    "answer": "Lionel Messi",
+    "type": "multiple_choice"
   },
   {
-    "text": "Which country hosted the 2012 Summer Olympics?",
-    "options": [
-      "China",
-      "Brazil",
-      "United Kingdom",
-      "Greece"
-    ],
-    "answer": "United Kingdom"
+    "text": "Select all sports played professionally in the USA.",
+    "options": ["Baseball", "Cricket", "American Football", "Basketball", "Rugby"],
+    "answer": ["Baseball", "American Football", "Basketball"],
+    "type": "multi_select"
   },
   {
-    "text": "In basketball, how many points is a shot worth from beyond the three-point line?",
-    "options": [
-      "2",
-      "3",
-      "4",
-      "5"
-    ],
-    "answer": "3"
+    "text": "The Super Bowl is the championship game of the NFL.",
+    "options": ["True", "False"],
+    "answer": "True",
+    "type": "true_false"
   },
   {
-    "text": "Which sport is played at Wimbledon?",
-    "options": [
-      "Badminton",
-      "Tennis",
-      "Squash",
-      "Table Tennis"
-    ],
-    "answer": "Tennis"
+    "text": "Which country won the first Rugby World Cup in 1987?",
+    "options": ["New Zealand", "Australia", "England", "South Africa"],
+    "answer": "New Zealand",
+    "type": "multiple_choice"
   },
   {
-    "text": "What colour card results in a player being sent off in football (soccer)?",
-    "options": [
-      "Yellow",
-      "Blue",
-      "Red",
-      "Green"
-    ],
-    "answer": "Red"
-  },
-  {
-    "text": "In which sport would you perform a 'slam dunk'?",
-    "options": [
-      "Volleyball",
-      "Basketball",
-      "Football",
-      "Rugby"
-    ],
-    "answer": "Basketball"
+    "text": "Select all Grand Slam tournaments in tennis.",
+    "options": ["Wimbledon", "US Open", "French Open", "Australian Open", "Tokyo Open"],
+    "answer": ["Wimbledon", "US Open", "French Open", "Australian Open"],
+    "type": "multi_select"
   }
 ]
